@@ -22,6 +22,17 @@ export const DataEntry = () => {
     formState: { errors },
   } = useForm<ChartFormValues>();
 
+  const handleDownload = () => {
+    const content = 'parameter1,parameter2,parameter3\n0,0,0';
+    const blob = new Blob([content], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'template.csv';
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   const onSubmit = (data: ChartFormValues) => {
     addEntry(data);
     reset();
@@ -52,12 +63,10 @@ export const DataEntry = () => {
           Добавить данные
         </Button>
         <ImportCSV />
-        <a href="/tatneft/templates/parameters-csv.csv" download>
-          <Button size="lg" type="button">
-            <DownloadSvg />
-            Скачать шаблон
-          </Button>
-        </a>
+        <Button size="lg" type="button" onClick={handleDownload}>
+          <DownloadSvg />
+          Скачать шаблон
+        </Button>
       </EntryWrapper>
     </>
   );
