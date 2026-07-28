@@ -24,7 +24,7 @@ export default tseslint.config(
         { type: 'app', pattern: 'src/app/*' },
         { type: 'pages', pattern: 'src/pages/*' },
         { type: 'widgets', pattern: 'src/widgets/*' },
-        { type: 'features', pattern: 'src/features/*' },
+        { type: 'features', pattern: 'src/import-csv/*' },
         { type: 'entities', pattern: 'src/entities/*' },
         { type: 'shared', pattern: 'src/shared/*' },
       ],

@@ -51,13 +51,14 @@ export const Chart = () => {
         {data.map((entry, i) => (
           <Button
             key={entry.id}
-            text={`Удалить запись ${i + 1}`}
             size="lg"
             onClick={() => removeEntry(entry.id)}
-          />
+          >{`Удалить запись ${i + 1}`}</Button>
         ))}
       </LineWrapper>
-      <Button text="Очистить всё" size="lg" onClick={clearDataChart} />
+      <Button size="lg" onClick={clearDataChart}>
+        Очистить всё
+      </Button>
     </CharWrapper>
   );
 };

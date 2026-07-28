@@ -5,7 +5,8 @@ export interface ButtonProps {
 }
 
 export const BaseButton = styled.button<ButtonProps>`
-  width: ${({ size }) =>
+  width: auto;
+  min-width: ${({ size }) =>
     size === 'full' ? '100%' : size === 'lg' ? '10rem' : size === 'md' ? '6rem' : '4rem'};
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
@@ -16,9 +17,19 @@ export const BaseButton = styled.button<ButtonProps>`
   transition:
     background 0.2s ease,
     opacity 0.2s ease;
-
   background: darkslateblue;
   color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    color: currentColor;
+  }
 
   &:hover {
     opacity: 0.85;
