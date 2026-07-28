@@ -1,7 +1,12 @@
-import type { CharFormValues } from '@/features/data-entry';
+import type { ChartFormValues } from '@/features/data-entry';
 
+type ParsedCSVRow = {
+  parameter1: number;
+  parameter2: number;
+  parameter3: number;
+};
 interface ParseCSVResult {
-  data: CharFormValues[];
+  data: ParsedCSVRow[];
   errors: string[];
 }
 
@@ -18,7 +23,7 @@ export const parseCSV = (content: string): ParseCSVResult => {
     return { data: [], errors: ['Неверный формат заголовков'] };
   }
 
-  const data: CharFormValues[] = rows
+  const data: ChartFormValues[] = rows
     .map((row, i) => {
       const values = row.split(',').map((v) => v.trim());
 
@@ -41,7 +46,7 @@ export const parseCSV = (content: string): ParseCSVResult => {
 
       return { parameter1: p1, parameter2: p2, parameter3: p3 };
     })
-    .filter((entry): entry is CharFormValues => entry !== null);
+    .filter((entry): entry is ChartFormValues => entry !== null);
 
   return { data, errors };
 };

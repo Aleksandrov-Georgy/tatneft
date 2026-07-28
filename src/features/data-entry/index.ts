@@ -1,1 +1,1 @@
-export { DataEntry, type CharFormValues } from './ui/DataEntry';
+export { DataEntry, type ChartFormValues } from './ui/DataEntry';

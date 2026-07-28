@@ -7,23 +7,23 @@ import { useChartStore } from '@/features/chart/model/store.ts';
 import { ImportCSV } from '@/features/import-csv';
 import { DownloadSvg } from '@/shared/assets';
 
-export interface CharFormValues {
+export interface ChartFormValues {
   parameter1: number;
   parameter2: number;
   parameter3: number;
 }
 export const DataEntry = () => {
-  const { setData } = useChartStore();
+  const { addEntry } = useChartStore();
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<CharFormValues>();
+  } = useForm<ChartFormValues>();
 
-  const onSubmit = (data: CharFormValues) => {
-    setData(data);
+  const onSubmit = (data: ChartFormValues) => {
+    addEntry(data);
     reset();
   };
 

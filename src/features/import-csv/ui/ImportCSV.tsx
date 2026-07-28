@@ -3,13 +3,13 @@ import { parseCSV } from '../service/parseCSV';
 import { toastService } from '@/shared/services';
 import { Button } from '@/shared/ui/button';
 import { useRef } from 'react';
-import type { CharFormValues } from '@/features/data-entry';
+import type { ChartFormValues } from '@/features/data-entry';
 import { ImportCSVWrapper } from '@/features/import-csv/ui/ImportCSV.styles.ts';
 import { UploadSvg } from '@/shared/assets';
 
 export const ImportCSV = () => {
   const fileRef = useRef<HTMLInputElement>(null);
-  const { setData } = useChartStore();
+  const { addEntry } = useChartStore();
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -23,7 +23,7 @@ export const ImportCSV = () => {
 
       errors.forEach((err: string) => toastService({ message: err, toastType: 'error' }));
 
-      data.forEach((entry: CharFormValues) => setData(entry));
+      data.forEach((entry: ChartFormValues) => addEntry(entry));
 
       if (data.length) {
         toastService({ message: `Загружено ${data.length} записей`, toastType: 'success' });
