@@ -1,3 +1,3 @@
-import { globalStyle } from './App.ts';
+import { GlobalStyles } from './App.ts';
 
-export { globalStyle };
+export { GlobalStyles };
