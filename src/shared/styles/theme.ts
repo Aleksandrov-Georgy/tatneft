@@ -1,13 +1,13 @@
 export const theme = {
   dark: {
     primary: '#888',
-    background: '#121212',
+    background: '#28282e',
     text: '#ffffff',
   },
   light: {
     primary: '#1a73e8',
     background: '#ffffff',
-    text: '#121212',
+    text: '#28282e',
   },
 };
 

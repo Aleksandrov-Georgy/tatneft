@@ -16,6 +16,9 @@ export const GlobalStyles = createGlobalStyle`
     min-height: 100vh;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    background: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.text};
+    transition: background 0.2s, color 0.2s;
   }
 
   img, picture, video, canvas, svg {
