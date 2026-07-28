@@ -1,20 +1,37 @@
 import { create } from 'zustand';
 import type { CharFormValues } from '@/features/data-entry';
 
+export interface ChartEntry extends CharFormValues {
+  id: string;
+}
+
 interface ChartState {
-  data: CharFormValues | null;
+  data: ChartEntry[];
   error: string | null;
   setData: (data: CharFormValues) => void;
+  removeEntry: (index: string) => void;
+  clearData: () => void;
   setError: (message: string) => void;
   clearError: () => void;
 }
 
 export const useChartStore = create<ChartState>((set) => ({
-  data: null,
+  data: [],
   error: null,
-  setData: (data) => set({ data }),
+  setData: (entry) =>
+    set((state) => ({
+      data: [...state.data, { ...entry, id: crypto.randomUUID() }],
+    })),
+  removeEntry: (id) =>
+    set((state) => ({
+      data: state.data.filter((item) => item.id !== id),
+    })),
+  clearData: () => set({ data: [] }),
   setError: (message) => set({ error: message }),
   clearError: () => set({ error: null }),
 }));
 
 export const selectChartData = (state: ChartState) => state.data;
+export const selectChartError = (state: ChartState) => state.error;
+export const selectClearData = (state: ChartState) => state.clearData;
+export const selectRemoveEntry = (state: ChartState) => state.removeEntry;

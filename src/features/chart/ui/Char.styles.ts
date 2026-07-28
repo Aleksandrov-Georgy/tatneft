@@ -10,3 +10,11 @@ export const CharWrapper = styled.div`
     width: 90% !important;
   }
 `;
+
+export const LineWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+`;
