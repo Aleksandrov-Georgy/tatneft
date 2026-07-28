@@ -1,2 +1,8 @@
 export { Chart } from './ui/Chart';
-export { useChartStore, selectChartData } from './model/store';
+export {
+  useChartStore,
+  selectChartData,
+  selectClearData,
+  selectChartError,
+  selectRemoveEntry,
+} from './model/store';
