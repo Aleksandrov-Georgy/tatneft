@@ -28,11 +28,16 @@ export const Label = styled.label`
 export const ErrorText = styled.span`
   display: block;
   font-size: 0.75rem;
-  color: #f10505;
+  color: red;
   overflow: hidden;
   max-height: 0;
   opacity: 0;
   transition:
     max-height 0.2s ease,
     opacity 0.2s ease;
+
+  &.visible {
+    max-height: 2rem;
+    opacity: 1;
+  }
 `;
