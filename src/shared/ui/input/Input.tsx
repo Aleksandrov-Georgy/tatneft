@@ -9,7 +9,7 @@ interface InputProps {
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, placeholder = '', type, error, ...rest }, ref) => (
+  ({ label, placeholder = ' ', type, error, ...rest }, ref) => (
     <InputWrapper>
       <Label>{label}</Label>
       <StyledInput ref={ref} type={type} placeholder={placeholder} {...rest} />

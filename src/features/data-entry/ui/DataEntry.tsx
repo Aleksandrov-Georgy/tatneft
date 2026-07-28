@@ -3,21 +3,25 @@ import { Input } from '@/shared/ui/input';
 import { Button } from '@/shared/ui/button';
 import { useForm } from 'react-hook-form';
 import { validationRules } from '../model/validation';
+import { useChartStore } from '@/features/chart/model/store.ts';
 
-interface CharFormValues {
+export interface CharFormValues {
   parameter1: number;
   parameter2: number;
   parameter3: number;
 }
 export const DataEntry = () => {
+  const { setData } = useChartStore();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<CharFormValues>();
 
+
   const onSubmit = (data: CharFormValues) => {
-    console.log(data);
+    setData(data);
   };
 
   return (
