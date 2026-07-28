@@ -11,7 +11,7 @@ export interface CharFormValues {
   parameter3: number;
 }
 export const DataEntry = () => {
-  const { setData } = useChartStore();
+  const { setData, setError } = useChartStore();
 
   const {
     register,
@@ -19,9 +19,9 @@ export const DataEntry = () => {
     formState: { errors },
   } = useForm<CharFormValues>();
 
-
   const onSubmit = (data: CharFormValues) => {
     setData(data);
+    setError('опля');
   };
 
   return (
