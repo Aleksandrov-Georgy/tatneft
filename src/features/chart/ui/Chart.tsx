@@ -23,7 +23,7 @@ export const Chart = () => {
       categories: ['Параметр 1', 'Параметр 2', 'Параметр 3'],
     },
     theme: {
-      mode: isDark ? 'dark' : 'light'
+      mode: isDark ? 'dark' : 'light',
     },
     stroke: {
       curve: 'smooth',
