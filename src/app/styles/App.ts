@@ -30,6 +30,17 @@ export const GlobalStyles = createGlobalStyle`
     font: inherit;
   }
 
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield;
+
+  }
+  
   p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
   }
