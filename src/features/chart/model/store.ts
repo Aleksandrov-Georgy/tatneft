@@ -1,14 +1,14 @@
 import { create } from 'zustand';
-import type { CharFormValues } from '@/features/data-entry';
+import type { ChartFormValues } from '@/features/data-entry';
 
-export interface ChartEntry extends CharFormValues {
+export interface ChartEntry extends ChartFormValues {
   id: string;
 }
 
 interface ChartState {
   data: ChartEntry[];
   error: string | null;
-  setData: (data: CharFormValues) => void;
+  addEntry: (data: ChartFormValues) => void;
   removeEntry: (index: string) => void;
   clearData: () => void;
   setError: (message: string) => void;
@@ -18,7 +18,7 @@ interface ChartState {
 export const useChartStore = create<ChartState>((set) => ({
   data: [],
   error: null,
-  setData: (entry) =>
+  addEntry: (entry) =>
     set((state) => ({
       data: [...state.data, { ...entry, id: crypto.randomUUID() }],
     })),
