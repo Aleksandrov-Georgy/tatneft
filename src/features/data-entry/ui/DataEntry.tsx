@@ -52,7 +52,7 @@ export const DataEntry = () => {
           Добавить данные
         </Button>
         <ImportCSV />
-        <a href="/templates/parameters-csv.csv" download>
+        <a href="/tatneft/templates/parameters-csv.csv" download>
           <Button size="lg" type="button">
             <DownloadSvg />
             Скачать шаблон
